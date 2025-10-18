@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:background="@android:color/black"
+     tools:context="com.renskylabs.camera2.MainActivity">
+
+    <com.renskylabs.camera2.AutoFitTextureView
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         android:layout_centerInParent="true"
+         android:id="@+id/texture" />
+
+    <LinearLayout
+         android:layout_height="56dp"
+         android:layout_width="match_parent"
+         android:paddingEnd="16dp"
+         android:background="#40000000"
+         android:gravity="center_vertical"
+         android:orientation="horizontal"
+         android:paddingStart="16dp"
+         android:layout_alignParentTop="true"
+         android:paddingTop="30dp"
+         android:id="@+id/topBar">
+
+        <ImageView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:src="@android:drawable/ic_menu_add"
+             android:contentDescription="Settings"
+             android:tint="@android:color/white" />
+
+        <View
+             android:layout_height="0dp"
+             android:layout_width="0dp"
+             android:layout_weight="1" />
+
+        <ImageView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:src="@android:drawable/ic_menu_rotate"
+             android:contentDescription="Flash Toggle"
+             android:tint="@android:color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+         android:layout_height="120dp"
+         android:layout_width="match_parent"
+         android:background="@android:color/black"
+         android:gravity="center"
+         android:orientation="horizontal"
+         android:layout_alignParentBottom="true"
+         android:id="@+id/shutterArea">
+
+        <ImageButton
+             android:layout_height="48dp"
+             android:layout_width="48dp"
+             android:src="@android:drawable/ic_menu_info_details"
+             android:contentDescription="ISO Control Toggle"
+             android:layout_marginEnd="16dp"
+             android:background="@android:color/transparent"
+             android:tint="@android:color/white"
+             android:id="@+id/iso_button"
+             android:layout_gravity="center_vertical" />
+
+        <ImageButton
+             android:layout_height="48dp"
+             android:layout_width="48dp"
+             android:src="@android:drawable/ic_menu_recent_history"
+             android:contentDescription="Shutter Speed Control Toggle"
+             android:layout_marginEnd="16dp"
+             android:background="@android:color/transparent"
+             android:tint="@android:color/white"
+             android:id="@+id/shutter_button"
+             android:layout_gravity="center_vertical" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_marginEnd="32dp"
+             android:textSize="18sp"
+             android:textColor="@android:color/holo_orange_light"
+             android:text="PRO"
+             android:textStyle="bold"
+             android:layout_gravity="center_vertical" />
+
+        <ImageButton
+             android:layout_height="72dp"
+             android:layout_width="72dp"
+             android:contentDescription="Shutter"
+             android:background="@drawable/orange_circle_shutter"
+             android:onClick="@null"
+             android:id="@+id/shutterButton"
+             android:layout_gravity="center_vertical" />
+
+        <ImageButton
+             android:layout_height="48dp"
+             android:layout_width="48dp"
+             android:src="@android:drawable/ic_menu_crop"
+             android:contentDescription="Focus Control Toggle"
+             android:background="@android:color/transparent"
+             android:tint="@android:color/white"
+             android:layout_marginStart="32dp"
+             android:id="@+id/focus_button"
+             android:layout_gravity="center_vertical" />
+
+        <ImageButton
+             android:layout_height="48dp"
+             android:layout_width="48dp"
+             android:src="@android:drawable/ic_menu_zoom"
+             android:contentDescription="Zoom Control Toggle"
+             android:background="@android:color/transparent"
+             android:tint="@android:color/white"
+             android:layout_marginStart="16dp"
+             android:id="@+id/zoom_button"
+             android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <com.renskylabs.camera2.ArcSliderView
+         android:layout_height="150dp"
+         android:layout_width="match_parent"
+         android:layout_marginBottom="0dp"
+         android:visibility="gone"
+         android:layout_above="@id/shutterArea"
+         android:layout_centerHorizontal="true"
+         android:translationY="0dp"
+         android:id="@+id/focus_arc_slider" />
+
+    <com.renskylabs.camera2.ArcSliderView
+         android:layout_height="150dp"
+         android:layout_width="match_parent"
+         android:layout_marginBottom="0dp"
+         android:visibility="gone"
+         android:layout_above="@id/shutterArea"
+         android:layout_centerHorizontal="true"
+         android:translationY="0dp"
+         android:id="@+id/iso_arc_slider" />
+
+    <com.renskylabs.camera2.ArcSliderView
+         android:layout_height="150dp"
+         android:layout_width="match_parent"
+         android:layout_marginBottom="0dp"
+         android:visibility="gone"
+         android:layout_above="@id/shutterArea"
+         android:layout_centerHorizontal="true"
+         android:translationY="0dp"
+         android:id="@+id/shutter_arc_slider" />
+
+    <com.renskylabs.camera2.ArcSliderView
+         android:layout_height="150dp"
+         android:layout_width="match_parent"
+         android:layout_marginBottom="0dp"
+         android:visibility="gone"
+         android:layout_above="@id/shutterArea"
+         android:layout_centerHorizontal="true"
+         android:translationY="0dp"
+         android:id="@+id/zoom_arc_slider" />
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:gravity="center_horizontal|bottom"
+         android:layout_above="@id/shutterArea"
+         android:orientation="horizontal"
+         android:paddingBottom="8dp"
+         android:id="@+id/controlLabels">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:clickable="true"
+             android:onClick="toggleIsoAuto"
+             android:textSize="12sp"
+             android:textColor="@android:color/white"
+             android:paddingHorizontal="8dp"
+             android:focusable="true"
+             android:id="@+id/isoLabel"
+             android:text="ISO: Auto" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:clickable="true"
+             android:onClick="toggleShutterAuto"
+             android:textSize="12sp"
+             android:textColor="@android:color/white"
+             android:paddingHorizontal="8dp"
+             android:focusable="true"
+             android:id="@+id/shutterLabel"
+             android:text="Shutter: Auto" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:clickable="true"
+             android:onClick="toggleFocusAuto"
+             android:textSize="12sp"
+             android:textColor="@android:color/white"
+             android:paddingHorizontal="8dp"
+             android:focusable="true"
+             android:id="@+id/focusLabel"
+             android:text="Focus: Auto" />
+
+    </LinearLayout>
+
+</RelativeLayout>
